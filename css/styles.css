@@ -3,8 +3,8 @@ body {
 }
 
 
-h2, h3 {
-	margin-top: 0.5em;
+h2 {
+	padding-top: 60px;
 }
 
 .fluid-sidebar {
@@ -13,12 +13,4 @@ h2, h3 {
 
 .fluid-container {
 	min-width:0;
-}
-
-/* Ace js */
-
-.code-example {
-    position: relative;
-    width: 500px;
-    height: 200px;
 }
