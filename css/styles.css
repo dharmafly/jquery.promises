@@ -2,10 +2,23 @@ body {
 	padding-top: 60px;
 }
 
+
+h2, h3 {
+	margin-top: 0.5em;
+}
+
+.fluid-sidebar {
+	position: fixed;
+}
+
 .fluid-container {
 	min-width:0;
 }
 
-h2, h3 {
-	margin-top: 0.5em;
+/* Ace js */
+
+.code-example {
+    position: relative;
+    width: 500px;
+    height: 200px;
 }
