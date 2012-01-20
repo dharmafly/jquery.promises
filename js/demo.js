@@ -5,7 +5,7 @@ jQuery('.row div.code-example').each(function(i, dom){
 });
 
 // Setup code evaluation for run buttons
-jQuery('a.btn.run-code')
+jQuery('button.btn.run-code')
     .click(function(){
         var editor = jQuery(this).prev().data("editor"),
             code = editor.getSession().getValue();
@@ -21,7 +21,7 @@ function createAceEditor(dom){
 	elem.css({
 		position: "relative",
 		height: 200,
-		width: 500
+		width: 460
 	});
 
 	var editor = ace.edit(dom),
