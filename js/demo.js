@@ -5,7 +5,7 @@ jQuery('.row div.code-example').each(function(i, dom){
 });
 
 // Setup code evaluation for run buttons
-jQuery('a.btn.')
+jQuery('a.btn.run-code')
     .click(function(){
         var editor = jQuery(this).prev().data("editor"),
             code = editor.getSession().getValue();
@@ -15,10 +15,13 @@ jQuery('a.btn.')
 
 
 function createAceEditor(dom){
-	jQuery(dom).css({
-		"position" : "relative",
-		"width"    : "500px",
-		"height"   : "200px"
+
+	var elem = jQuery(dom);
+
+	elem.css({
+		position: "relative",
+		height: 200,
+		width: 500
 	});
 
 	var editor = ace.edit(dom),
@@ -29,6 +32,5 @@ function createAceEditor(dom){
 	session.setUseSoftTabs(true);
 	session.setMode(new jsMode());
 
-	// Set up accessible references for the code evaluation buttons
-	jQuery(dom).data("editor", editor);
+	elem.data("editor", editor);
 }
