@@ -1,0 +1,7 @@
+body {
+	padding-top: 60px;
+}
+
+.fluid-container {
+	min-width:auto;
+}
