@@ -3,6 +3,28 @@
 (function(jQuery, window){
     "use strict";
     
+    function start(timeLeft){
+		var promise;
+		
+		if (this.state() === "pending"){
+			promise = this;
+			
+			// If the deferred hasn't yet been started, then set a `timeLeft`
+			if (!this._timeLeft){
+				this._timeLeft = timeLeft || 1000; // default: 1 second
+			}
+			
+			// Log the start time
+			this._timeStarted = (new Date).getTime();
+			
+			// Start the timeout
+	        this._timeoutRef = window.setTimeout(function(){
+	            promise._resolve();
+	        }, timeLeft);
+		}
+		return this;
+    }
+    
     function stop(){
 		var now;
 		
@@ -19,31 +41,9 @@
 		return this;
     }
     
-    function start(timeLeft, callback){
-		var promise;
-		
-		if (this.state() === "pending"){
-			promise = this;
-			
-			// If the deferred hasn't yet been started, then set a `timeLeft`
-			if (!this._timeLeft){
-				this._timeLeft = timeLeft || 1000; // default: 1 second
-			}
-			
-			// Log the start time
-			this._timeStarted = (new Date).getTime();
-			
-			// Start the timeout
-	        this._timeoutRef = window.setTimeout(function(){
-	            callback(promise);
-	        }, timeLeft);
-		}
-		return this;
-    }
-    
     /////
     
-    function deferredTimer(time, doneCallbacks, failCallbacks){
+    function promiseTimer(time, doneCallbacks, failCallbacks){
         var deferred, promise;
 
         /////
@@ -56,27 +56,29 @@
 
         /////
 
-        // extend
+        // Extend
         promise.start = start;
         promise.stop = stop;
-
-        /////
-
-        // By default, this Deferred will resolve in 1 second's time
-        promise._timeoutRef = window.setTimeout(function(){
+		
+		// Adding a "private" method to allow the setTimeout to resolve the deferred object
+		// (a little ugly, but avoids creating a new closure for each new timer by allowing the `start` method to exist only once in memory)
+		promise._resolve = function(){
             deferred.resolveWith(promise);
-        }, time || 1000);
+        };
 
         /////
-        return promise;
+		
+		// Start the clock and return
+        return promise.start();
     };
 	
 	/////
 	
+	// Extend jQuery.promises
 	if (!jQuery.promises){
 		jQuery.promises = {};
 	}
-	jQuery.promises.timer = deferredTimer;
+	jQuery.promises.timer = promiseTimer;
 
 }(window.jQuery, window));
 

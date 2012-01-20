@@ -99,6 +99,7 @@
 	
 	/////
 	
+	// Extend jQuery.promises
 	if (!jQuery.promises){
 		jQuery.promises = {};
 	}
