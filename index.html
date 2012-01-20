@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>project name</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -15,56 +14,9 @@
     <!-- Le styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-      /* Override some defaults */
-      html, body {
-        background-color: #eee;
-      }
       body {
-        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+        padding-top: 60px;
       }
-      .container > footer p {
-        text-align: center; /* center align it with the container */
-      }
-      .container {
-        width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
-      }
-
-      /* The white background content wrapper */
-      .content {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-        -webkit-border-radius: 0 0 6px 6px;
-           -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-      }
-
-      /* Page header tweaks */
-      .page-header {
-        background-color: #f5f5f5;
-        padding: 20px 20px 10px;
-        margin: -20px -20px 20px;
-      }
-
-      /* Styles you shouldn't keep as they are for displaying this base example only */
-      .content .span10,
-      .content .span4 {
-        min-height: 500px;
-      }
-      /* Give a quick and non-cross-browser friendly divider */
-      .content .span4 {
-        margin-left: 0;
-        padding-left: 19px;
-        border-left: 1px solid #eee;
-      }
-
-      .topbar .btn {
-        border: 0;
-      }
-
     </style>
 
     <!-- Le fav and touch icons -->
@@ -76,39 +28,65 @@
 
   <body>
 
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="#">Project name</a>
+    <div class="navbar navbar-fixed">
+      <div class="navbar-inner">
+        <div class="fluid-container">
+          <a class="brand" href="#">project name</a>
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#download">Download</a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="container">
-
-      <div class="content">
-        <div class="page-header">
-          <h1>Page name <small>Supporting text or tagline</small></h1>
-        </div>
-        <div class="row">
-          <div class="span10">
-            <h2>Main content</h2>
-          </div>
-          <div class="span4">
-            <h3>Secondary content</h3>
-          </div>
+    <div class="fluid-container sidebar-left">
+      <div class="fluid-sidebar">
+        <div class="well side-nav">
+          <h5 class="nav-label">Sidebar</h5>
+          <ul class="nav-group">
+            <li class="active"><a class="nav-item" href="#">Link</a></li>
+            <li><a class="nav-item" href="#">Link</a></li>
+          </ul>
+		  
+          <h5 class="nav-label">Sidebar</h5>
+          <ul class="nav-group">
+            <li><a class="nav-item" href="#">Link</a></li>
+          </ul>
+		  
+          <h5 class="nav-label">Sidebar</h5>
+          <ul class="nav-group">
+            <li><a class="nav-item" href="#">Link</a></li>
+          </ul>
         </div>
       </div>
+      <div class="fluid-content">
+        <div class="hero-unit">
+          <h1>Hello, world!</h1>
+          <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+          <p><a class="btn primary large">GitHub repo &raquo;</a></p>
+        </div>
 
-      <footer>
-      </footer>
+        <div class="row">
+          <div class="span6">
+            <h2>Example</h2>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">Run &raquo;</a></p>
+          </div>
+          <div class="span6">
+            <h2>Result</h2>
+             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+         </div>
+        </div>
 
-    </div> <!-- /container -->
+        <hr>
+        
+        <footer>
+          <p></p>
+        </footer>
+      </div>
+    </div>
 
   </body>
 </html>
