@@ -1,6 +1,6 @@
 /*global window */
 
-var deferredImage = (function(jQuery){
+(function(jQuery){
     "use strict";
     
     var // Placeholder image src
@@ -31,7 +31,7 @@ var deferredImage = (function(jQuery){
     
     /////
                 
-    return function(image, doneCallbacks, failCallbacks){
+    function promiseImage(image, doneCallbacks, failCallbacks){
         var $img, img, promises, deferred, src, promise;
 
         // Image src
@@ -43,7 +43,7 @@ var deferredImage = (function(jQuery){
         // Array of images
         else if (jQuery.isArray(image)){
             promises = jQuery.map(image, function(singleImage){
-                return deferredImage(singleImage);
+                return promiseImage(singleImage);
             });
 
             promise = jQuery.when.apply(jQuery, promises)
@@ -96,6 +96,14 @@ var deferredImage = (function(jQuery){
         
         return promise;
     };
+	
+	/////
+	
+	if (!jQuery.promises){
+		jQuery.promises = {};
+	}
+	jQuery.promises.image = promiseImage;
+	
 }(window.jQuery));
 
 /*jslint white: true */

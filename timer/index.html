@@ -26,14 +26,14 @@
         
 <code><pre>
 &lt;script src="jquery.js">&lt;/script>
-&lt;script src="jquerypromises/timer.js">&lt;/script>
+&lt;script src="jquery.promises/timer.js">&lt;/script>
 </pre></code>
 
 
 <h2>Examples</h2>
 
 <code class="example"><pre>
-deferredTimer(
+jQuery.promises.timer(
     // milliseconds
     500,
     
@@ -54,7 +54,7 @@ deferredTimer(
 var bodyElem = jQuery("body"),
     flag = window.flagBg;
     
-deferredTimer(
+jQuery.promises.timer(
     // milliseconds
     500,
     
@@ -87,8 +87,8 @@ var images = [
 
 function loadAndDisplay(src){
     jQuery.when(
-        deferredImage(src),
-        deferredTimer(1000)
+        jQuery.promises.image(src),
+        jQuery.promises.timer(1000)
     )
     .then(
         function(img){
