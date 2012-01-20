@@ -73,10 +73,90 @@
 
         <div class="row">
           <div class="span6">
-            <h3>Example</h3>
+            <h3>Example #1</h3>
            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p>
-              <div class="code-example">alert("hello world");</div>
+              <div class="code-example"><pre>
+jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
+    .then(
+        function(img){
+            jQuery(img).appendTo(document.body);
+        },
+        function(){
+            alert("Image failed to load");
+        }
+    );
+                </pre>
+              </div>
+              <button class="btn run-code" href="#">Run &raquo;</button>
+            </p>
+          </div>
+          <div class="span6">
+            <h3>Result</h3>
+             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+         </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h3>Example #2</h3>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+              <div class="code-example"><pre>
+jQuery.when(
+    jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
+    jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
+    jQuery.get("../demo/example.json")
+)   
+.then(
+    function(img1, img2, json){
+        jQuery(document.body)
+            .append(img1)
+            .append(img2)
+            .append("&lt;code>" + json[0].foo + "&lt;/code>");
+    },
+    function(){
+        alert("Something failed to load");
+    }
+);
+              </pre>
+              </div>
+              <button class="btn run-code" href="#">Run &raquo;</button>
+            </p>
+          </div>
+          <div class="span6">
+            <h3>Result</h3>
+             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+         </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h3>Example #3</h3>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+              <div class="code-example"><pre>
+jQuery.promises.image(
+    [
+        "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
+        "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
+        "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
+    ],
+    
+    // Success callback - called if all images load successfully
+    // image elements are passed as arguments in the same order as above
+    function(){
+        jQuery(arguments)
+            .hide()
+            .appendTo(document.body)
+            .fadeIn(1000);
+    },
+    
+    // Fail callback - called if one or more images fail to load
+    function(){
+        alert("An image failed to load");
+    }
+);
+              </pre>
+              </div>
               <button class="btn run-code" href="#">Run &raquo;</button>
             </p>
           </div>
@@ -89,17 +169,32 @@
         <!-- jQuery.promises.timer -->
         <div class="row">
           <div class="span6">
-            <h2 id="jQuery.promises.timer">jQuery.promises.image</h2>
+            <h2 id="jQuery.promises.timer">jQuery.promises.timer</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
           </div>
         </div>
 
         <div class="row">
           <div class="span6">
-            <h3>Example</h3>
+            <h3>Example #1</h3>
            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p>
-              <div class="code-example">alert("hello world");</div>
+              <div class="code-example"><pre>
+jQuery.promises.timer(
+    // milliseconds
+    500,
+    
+    // Success callback
+    function(){
+        alert("Success!");
+    },
+
+    // Fail callback
+    function(){
+        alert("Error!");
+    }
+);
+            </pre></div>
               <button class="btn run-code" href="#">Run &raquo;</button>
             </p>
           </div>
@@ -128,6 +223,9 @@
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/demo.js"type="text/javascript" ></script>
+
+    <script src="https://raw.github.com/dharmafly/jquery.promises/master/image.js" type="text/javascript"></script>
+    <script src="https://raw.github.com/dharmafly/jquery.promises/master/timer.js" type="text/javascript"></script>
 
   </body>
 </html>
