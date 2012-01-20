@@ -3,5 +3,5 @@ body {
 }
 
 .fluid-container {
-	min-width:auto;
+	min-width:0;
 }
