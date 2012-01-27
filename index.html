@@ -78,9 +78,7 @@
 
         <h3>Example #1</h3>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <div class="code-example">
-          <pre>
-jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
+        <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
   .then(
       function(img){
           jQuery(img).appendTo(document.body);
@@ -88,8 +86,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
       function(){
           alert("Image failed to load");
       }
-  );
-            </pre>
+  );      </pre>
           </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
@@ -97,8 +94,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
 
           <h3>Example #2</h3>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-          <div class="code-example">
-            <pre>jQuery.when(
+          <div class="code-example"><pre>jQuery.when(
     jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
     jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
     jQuery.get("../demo/example.json")
@@ -114,7 +110,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
         alert("Something failed to load");
     }
 );
-            </pre>
+          </pre>
           </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
@@ -122,8 +118,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
 
           <h3>Example #3</h3>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <div class="code-example">
-              <pre>jQuery.promises.image(
+            <div class="code-example"><pre>jQuery.promises.image(
     [
         "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
         "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
@@ -144,7 +139,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
         alert("An image failed to load");
     }
 );
-              </pre>
+            </pre>
             </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
@@ -158,8 +153,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
 
           <h3>Example #1</h3>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <div class="code-example">
-            <pre>jQuery.promises.timer(
+          <div class="code-example"><pre>jQuery.promises.timer(
     // milliseconds
     500,
     
@@ -173,7 +167,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
         alert("Error!");
     }
 );
-            </pre>
+          </pre>
           </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
@@ -181,8 +175,7 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
 
           <h3>Example #2</h3>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <div class="code-example">
-            <pre>var bodyElem = jQuery("body"),
+          <div class="code-example"><pre>var bodyElem = jQuery("body"),
     flag = window.flagBg;
     
 jQuery.promises.timer(
@@ -205,7 +198,7 @@ jQuery.promises.timer(
         alert("Error");
     }
 );
-            </pre>
+          </pre>
           </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
@@ -213,8 +206,7 @@ jQuery.promises.timer(
 
           <h3>Example #3</h3>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <div class="code-example">
-            <pre>var images = [
+          <div class="code-example"><pre>var images = [
         "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
         "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
         "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
@@ -254,7 +246,7 @@ function loadAndDisplay(src){
 }
 
 loadAndDisplay(images[current]);
-            </pre>
+          </pre>
           </div>
           <button class="btn run-code" href="#">Run &raquo;</button>
           <h3>Result</h3>
