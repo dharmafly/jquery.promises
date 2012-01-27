@@ -5,21 +5,24 @@
     
     var // Placeholder image src
         blankSrc = "data:image/gif;base64,R0lGODlhAQABAIAAAPj8/wAAACwAAAAAAQABAAACAkQBADs=",
-        resolveDeferred,
+        finalize,
     
         // Handlers for image `onload` and `onerror` events
         handlers = {
             load: function(){
-                resolveDeferred(this, 1);
+                finalize(this, 1);
             },
             error: function(){
-                resolveDeferred(this);
+                finalize(this);
             }
         };
 
     // Resolve or reject the deferred on the $img element
-    resolveDeferred = function(img, success){
+    finalize = function(img, success){
         var $img = jQuery(img);
+		
+		$img.data("deferred")
+			.notify(img);
         
         // Resolve or reject the stored `deferred` object, passing the DOM element to callbacks
         $img.data("deferred")[success ? "resolve" : "reject"](img);
