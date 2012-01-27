@@ -10,13 +10,16 @@ h3 {
     padding: 20px 0 20px 0;
 }
 
-.fluid-sidebar {
-    position: fixed;
-}
-
-.fluid-container {
+.fluid-container.sidebar-left{
     min-width:0;
     margin-bottom: 40px;
+    padding-left:220px;
+}
+
+.fluid-sidebar {
+    position: fixed;
+    margin-left:-200px !important;
+    width:180px;
 }
 
 div.ace_editor{
