@@ -15,8 +15,8 @@ jQuery('button.btn.run-code')
 
 
 function createAceEditor(dom){
-
-    var elem = jQuery(dom);
+    var elem = jQuery(dom),
+		editor, session, jsMode;
 
     elem.css({
         position: "relative",
@@ -24,11 +24,14 @@ function createAceEditor(dom){
         width: "100%"
     });
 
-    var editor = ace.edit(dom),
-        session = editor.getSession(),
-        jsMode = require("ace/mode/javascript").Mode;
+    editor = ace.edit(dom);
+    session = editor.getSession();
+    jsMode = require("ace/mode/javascript").Mode;
         
     editor.setTheme("ace/theme/monokai");
+	editor.setHighlightActiveLine(false);
+	editor.setShowPrintMargin(false);
+	
     session.setTabSize(4);
     session.setUseSoftTabs(true);
     session.setMode(new jsMode());
