@@ -6,6 +6,10 @@ body {
     margin-bottom:18px;
 }
 
+h2 { 
+    padding-top: 50px;
+}
+
 h3 {
     padding: 36px 0 20px 0;
 }
