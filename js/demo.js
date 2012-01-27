@@ -7,7 +7,7 @@ jQuery('div.code-example').each(function(i, dom){
 // Setup code evaluation for run buttons
 jQuery('button.btn.run-code')
     .click(function(){
-        var editor = jQuery(this).prev().data("editor"),
+        var editor = jQuery(this).parent().prev().data("editor"),
             code = editor.getSession().getValue();
 
         jQuery.globalEval(code);
