@@ -7,10 +7,18 @@ h2 {
 	padding-top: 60px;
 }
 
+h3 {
+	padding-top: 40px;
+}
+
 .fluid-sidebar {
 	position: fixed;
 }
 
 .fluid-container {
 	min-width:0;
+}
+
+button.run-code {
+	margin-top: 14px;
 }
