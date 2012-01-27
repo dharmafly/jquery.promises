@@ -17,6 +17,7 @@ h3 {
 
 .fluid-container {
     min-width:0;
+    margin-bottom: 40px;
 }
 
 div.ace_editor{
