@@ -25,6 +25,8 @@
 
   <body>
 
+    <!-- Navbar -->
+
     <div class="navbar navbar-fixed">
       <div class="navbar-inner">
         <div class="fluid-container">
@@ -38,19 +40,26 @@
       </div>
     </div>
 
+    <!-- Container -->
+
     <div class="fluid-container sidebar-left">
       <div class="fluid-sidebar">
         <div class="well side-nav">
           <h5 class="nav-label">Sidebar</h5>
           <ul class="nav-group">
             <li class="active"><a class="nav-item" href="#about">About</a></li>
-            <li><a class="nav-item" href="#jQuery.promises.image">jQuery.promises.image</a></li>
+          </ul>
+
+          <h5 class="nav-label">jQuery.promises.image</h5>
+          <ul class="nav-group">
+            <li class="active"><a class="nav-item" href="#jQuery.promises.timer">About</a></li>
             <li><a class="nav-item" href="#jQuery.promises.timer">jQuery.promises.timer</a></li>
           </ul>
 
-          <h5 class="nav-label">Sidebar</h5>
+          <h5 class="nav-label">jQuery.promises.timer</h5>
           <ul class="nav-group">
-            <li><a class="nav-item" href="#">Link</a></li>
+            <li class="active"><a class="nav-item" href="#jQuery.promises.timer">About</a></li>
+            <li><a class="nav-item" href="">jQuery.promises.timer</a></li>
           </ul>
         </div>
       </div>
@@ -64,19 +73,13 @@
         </div>
    
         <!-- jQuery.promises.image -->
-        <div class="row">
-          <div class="span6">
-            <h2 id="jQuery.promises.image">jQuery.promises.image</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-          </div>
-        </div>
+        <h2 id="jQuery.promises.image">jQuery.promises.image</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
 
-        <div class="row">
-          <div class="span6">
-            <h3>Example #1</h3>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p>
-              <div class="code-example"><pre>
+        <h3>Example #1</h3>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <div class="code-example">
+          <pre>
 jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
@@ -86,22 +89,16 @@ jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_
             alert("Image failed to load");
         }
     );
-                </pre>
-              </div>
-              <button class="btn run-code" href="#">Run &raquo;</button>
-            </p>
+            </pre>
           </div>
-          <div class="span6">
-            <h3>Result</h3>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         </div>
-        </div>
-        <div class="row">
-          <div class="span6">
-            <h3>Example #2</h3>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p>
-              <div class="code-example"><pre>
+          <button class="btn run-code" href="#">Run &raquo;</button>
+          <h3>Result</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+          <h3>Example #2</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <div class="code-example">
+            <pre>
 jQuery.when(
     jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
     jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
@@ -118,22 +115,16 @@ jQuery.when(
         alert("Something failed to load");
     }
 );
-              </pre>
-              </div>
-              <button class="btn run-code" href="#">Run &raquo;</button>
-            </p>
+            </pre>
           </div>
-          <div class="span6">
-            <h3>Result</h3>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         </div>
-        </div>
-        <div class="row">
-          <div class="span6">
-            <h3>Example #3</h3>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p>
-              <div class="code-example"><pre>
+          <button class="btn run-code" href="#">Run &raquo;</button>
+          <h3>Result</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+          <h3>Example #3</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <div class="code-example">
+              <pre>
 jQuery.promises.image(
     [
         "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
@@ -156,30 +147,21 @@ jQuery.promises.image(
     }
 );
               </pre>
-              </div>
-              <button class="btn run-code" href="#">Run &raquo;</button>
-            </p>
-          </div>
-          <div class="span6">
-            <h3>Result</h3>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         </div>
-        </div>
+            </div>
+          <button class="btn run-code" href="#">Run &raquo;</button>
+          <h3>Result</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
 
         <!-- jQuery.promises.timer -->
-        <div class="row">
-          <div class="span6">
-            <h2 id="jQuery.promises.timer">jQuery.promises.timer</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-          </div>
-        </div>
+          <h2 id="jQuery.promises.timer">jQuery.promises.timer</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
 
-        <div class="row">
-          <div class="span6">
-            <h3>Example #1</h3>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p>
-              <div class="code-example"><pre>
+
+          <h3>Example #1</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <div class="code-example">
+            <pre>
 jQuery.promises.timer(
     // milliseconds
     500,
@@ -194,23 +176,96 @@ jQuery.promises.timer(
         alert("Error!");
     }
 );
-            </pre></div>
-              <button class="btn run-code" href="#">Run &raquo;</button>
-            </p>
+            </pre>
+          <button class="btn run-code" href="#">Run &raquo;</button>
           </div>
-          <div class="span6">
-            <h3>Result</h3>
-             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         </div>
-        </div>
+          <h3>Result</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 
-        <hr>
+          <h3>Example #2</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <div class="code-example">
+            <pre>
+var bodyElem = jQuery("body"),
+    flag = window.flagBg;
+    
+jQuery.promises.timer(
+    // milliseconds
+    500,
+    
+    // Success callback
+    function(){
+        // Toggle body background-colour from white to green
+        bodyElem.css({
+            backgroundColor: flag ?
+                "#fff" : "#afa"
+        });
+        
+        window.flagBg = !flag
+    },
 
-      <footer>
-        <p>Foobar</p>
-      </footer>
+    // Fail callback
+    function(){
+        alert("Error");
+    }
+);
+            </pre>
+          </div>
+          <button class="btn run-code" href="#">Run &raquo;</button>
+          <h3>Result</h3>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 
-    </div> <!-- /container -->
+          <h3>Example #3</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <div class="code-example">
+            <pre>
+var images = [
+        "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
+        "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
+        "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
+    ],
+    current = 0;
+
+function loadAndDisplay(src){
+    jQuery.when(
+        jQuery.promises.image(src),
+        jQuery.promises.timer(1000)
+    )
+    .then(
+        function(img){
+            // Display the image
+            jQuery(img)
+                .hide()
+                .fadeIn(500, function(){
+                    // Once faded in, load next image
+                    current ++;
+                    
+                    // Reset loop to first image
+                    if (current >= images.length){
+                        current = 0;
+                    }
+                    
+                    // Load and display the next image
+                    loadAndDisplay(images[current]);
+                });
+                
+            jQuery("#result").html(img);
+        },
+    
+        function(){
+            alert("Error");
+        }
+    );
+}
+
+loadAndDisplay(images[current]);
+            </pre>
+          </div>
+          <button class="btn run-code" href="#">Run &raquo;</button>
+          <h3>Result</h3>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        
+        </div> <!-- /container -->
         
         <hr>
         
