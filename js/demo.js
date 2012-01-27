@@ -1,19 +1,3 @@
-// Run through dom creating ace editors out of div.code-example
-
-jQuery('div.code-example').each(function(i, dom){
-    createAceEditor(dom);
-});
-
-// Setup code evaluation for run buttons
-jQuery('button.btn.run-code')
-    .click(function(){
-        var editor = jQuery(this).parent().prev().data("editor"),
-            code = editor.getSession().getValue();
-
-        jQuery.globalEval(code);
-    });
-
-
 function createAceEditor(dom){
     var elem = jQuery(dom),
 		editor, session, jsMode;
@@ -38,3 +22,17 @@ function createAceEditor(dom){
 
     elem.data("editor", editor);
 }
+
+// For each code block, create an ACE code editor
+jQuery('div.code-example').each(function(i, dom){
+    createAceEditor(dom);
+});
+
+// Attach handlers to "Run" buttons
+jQuery('button.btn.run-code')
+    .click(function(){
+        var editor = jQuery(this).parent().prev().data("editor"),
+            code = editor.getSession().getValue();
+
+        jQuery.globalEval(code);
+    });
