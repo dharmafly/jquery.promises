@@ -1,6 +1,6 @@
 // Run through dom creating ace editors out of div.code-example
 
-jQuery('.row div.code-example').each(function(i, dom){
+jQuery('div.code-example').each(function(i, dom){
     createAceEditor(dom);
 });
 
@@ -27,7 +27,8 @@ function createAceEditor(dom){
     var editor = ace.edit(dom),
         session = editor.getSession(),
         jsMode = require("ace/mode/javascript").Mode;
-
+        
+    editor.setTheme("ace/theme/monokai");
     session.setTabSize(4);
     session.setUseSoftTabs(true);
     session.setMode(new jsMode());
