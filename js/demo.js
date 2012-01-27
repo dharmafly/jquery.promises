@@ -20,8 +20,8 @@ function createAceEditor(dom){
 
     elem.css({
         position: "relative",
-        height: 200,
-        width: 460
+        height: 300,
+        width: "100%"
     });
 
     var editor = ace.edit(dom),
