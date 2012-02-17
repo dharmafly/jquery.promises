@@ -70,7 +70,7 @@
         </div>
 
         <hr>
-   
+
         <!-- jQuery.promises.image -->
         <h2 id="image">jQuery.promises.image</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
@@ -89,7 +89,7 @@
     );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
@@ -101,7 +101,7 @@
       jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
       jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
       jQuery.get("../demo/example.json")
-  )   
+  )
   .then(
       function(img1, img2, json){
           jQuery(document.body)
@@ -115,11 +115,11 @@
   );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
-        
+
         <section id="image-example-3">
           <h3>Example #3</h3>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -129,7 +129,7 @@
           "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
           "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
       ],
-      
+
       // Success callback - called if all images load successfully
       // image elements are passed as arguments in the same order as above
       function(){
@@ -138,7 +138,7 @@
               .appendTo(document.body)
               .fadeIn(1000);
       },
-      
+
       // Fail callback - called if one or more images fail to load
       function(){
           alert("An image failed to load");
@@ -146,13 +146,13 @@
   );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
 
         <hr>
-        
+
         <!-- jQuery.promises.timer -->
           <h2 id="timer">jQuery.promises.timer</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
@@ -164,7 +164,7 @@
             <div class="code-example"><pre>jQuery.promises.timer(
       // milliseconds
       500,
-      
+
       // Success callback
       function(){
           alert("Success!");
@@ -177,21 +177,21 @@
   );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
-          
+
           <section id="timer-example-2">
             <h3>Example #2</h3>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <div class="code-example"><pre>var bodyElem = jQuery("body"),
       flag = window.flagBg;
-      
+
   jQuery.promises.timer(
       // milliseconds
       500,
-      
+
       // Success callback
       function(){
           // Toggle body background-colour from white to green
@@ -199,7 +199,7 @@
               backgroundColor: flag ?
                   "#fff" : "#afa"
           });
-          
+
           window.flagBg = !flag
       },
 
@@ -210,7 +210,7 @@
   );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
@@ -238,19 +238,19 @@
                   .fadeIn(500, function(){
                       // Once faded in, load next image
                       current ++;
-                      
+
                       // Reset loop to first image
                       if (current >= images.length){
                           current = 0;
                       }
-                      
+
                       // Load and display the next image
                       loadAndDisplay(images[current]);
                   });
-                  
+
               jQuery("#result").html(img);
           },
-      
+
           function(){
               alert("Error");
           }
@@ -260,7 +260,7 @@
   loadAndDisplay(images[current]);</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> </br> </br>
+              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
@@ -268,7 +268,7 @@
         </div> <!-- /container -->
       </div>
     </div>
-	
+
 	<!-- jQuery + jQuery.promises -->
 	<script src="js/jquery.js"></script>
     <script src="https://raw.github.com/dharmafly/jquery.promises/master/image.js"></script>
