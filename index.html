@@ -81,9 +81,7 @@
           <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
-            jQuery(img).appendTo(
-                jQuery('#image-example-1 .result')
-            );
+            jQuery(img).appendTo('#image-example-1 .result');
         },
         function(){
             alert("Image failed to load");
@@ -137,9 +135,7 @@
       function(){
           jQuery(arguments)
               .hide()
-              .appendTo(
-                  jQuery("#image-example-3 .result")
-              )
+              .appendTo("#image-example-3 .result")
               .fadeIn(1000);
       },
 
