@@ -69,7 +69,7 @@
         /////
 		
 		// Start the clock and return
-        return promise.start();
+        return promise.start(time);
     };
 	
 	/////
