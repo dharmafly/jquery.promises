@@ -189,6 +189,7 @@
       flag = window.flagBg;
 
   jQuery.promises.timer(
+
       // milliseconds
       500,
 
@@ -232,10 +233,11 @@
       )
       .then(
           function(img){
-              // Display the image
               jQuery(img)
+                  // Hide image and then display it
                   .hide()
                   .fadeIn(500, function(){
+
                       // Once faded in, load next image
                       current ++;
 
