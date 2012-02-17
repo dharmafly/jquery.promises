@@ -18,6 +18,10 @@ body {
     width:180px;
 }
 
+.hero-unit p {
+    margin: 2em 0 2em 0;
+}
+
 h2 {
     padding-top:50px;
 }
