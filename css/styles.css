@@ -6,14 +6,6 @@ body {
     margin-bottom:18px;
 }
 
-h2 { 
-    padding-top: 50px;
-}
-
-h3 {
-    padding: 36px 0 20px 0;
-}
-
 .fluid-container.sidebar-left{
     min-width:0;
     margin-bottom: 40px;
@@ -24,6 +16,14 @@ h3 {
     position: fixed;
     margin-left:-200px !important;
     width:180px;
+}
+
+h3 {
+    padding: 36px 0 20px 0;
+}
+
+hr {
+    margin-top:26px;
 }
 
 div.ace_editor{
