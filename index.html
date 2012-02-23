@@ -64,18 +64,26 @@
         <!-- Project introduction-->
         <div class="hero-unit">
           <h1 id="overview">Introducing promises</h1>
+
           <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine but can easily lead to messy and tightly-coupled code when you need to handle asynchronous flow control. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow more flexible flow control without deeply nested callbacks.</p>
-          <p>Slides from a talk given by the authors of jQuery.promises.</p>
+
           <p>Promise objects have multiple states which range from being <em>unfulfilled</em>, <em>fulfilled</em>, and <em>failed</em>. A Deferred object which is responsible for creating the promise manages these states.</p>
+
           <p>As of jQuery 1.5, all of its <a href="http://api.jquery.com/category/ajax/" target="_blank">AJAX methods</a> like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> return a promise object that programmers can hook their next non/asynchronous function. This can be done using the promise's <a href="http://api.jquery.com/deferred.then/" target="_blank">then</a> method like so...</p>
+
           <pre>
 jQuery.get('foo.txt')
       .then(success, failure);</pre>
+
           <p>In the example code above it is up to an internal <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object of <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> to constitute when its promise has <em>fulfilled</em> or <em>failed</em>.</p>
+
           <h3>jQuery.promises</h3>
           <p>So just like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> has done, programmers can wrap a Deferred object and return its promise to create a unified interface for asynchronous flow control.</p>
+
           <p>This is what <b>jQuery.promises</b> aims to do by providing a number of tiny but useful wrappers around common objects which can be used with the promise interface. Currently, there are only two wrappers; <a href="#image">jQuery.promises.image</a> and <a href="#timer">jQuery.promises.timer</a>.</p>
+
           <p><a class="btn primary large" href="https://github.com/dharmafly/jquery.promises">GitHub repo &raquo;</a></p>
+          <p> Consider viewing <a href="http://promisespromises.dharmafly.com" target="_blank">slides</a> about Promises from <a href="http://asyncjs.com/promises/" target="_blank">a talk</a> given by the <a href="#credits">authors</a> of jQuery.promises.</p>
         </div>
 
         <hr>
@@ -127,7 +135,7 @@ jQuery.get('foo.txt')
           </section>
 
         <section id="image-example-3">
-          <h3>Loading multiple images and fading them in</h3>
+          <h3>#3 Loading multiple images and fading them in</h3>
             <p>You can pass in an array of image urls or image dom nodes to  jQuery.promises.image as well as a success callback to jQuery.promises.image as a second parameter.</p>
               <div class="code-example"><pre>jQuery.promises.image(
       [
