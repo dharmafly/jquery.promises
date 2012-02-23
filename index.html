@@ -85,7 +85,7 @@ jQuery.get('foo.txt')
         <p>This is a Deferred wrapped around a HTML Image Node element.</p>
         <section id="image-example-1">
           <h3>#1 Loading an Image</h3>
-          <p>One can use jQuery.promises.image to structure their code based on whether or not the image correctly loads.</p>
+          <p>One can use jQuery.promises.image to structure their code based on whether or not the image correctly loads. In this example jQuery.promises.image has an image url passed to it.</p>
           <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
@@ -103,7 +103,7 @@ jQuery.get('foo.txt')
 
         <section id="image-example-2">
           <h3>#2 Loading multiple images and json</h3>
-            <p>This example demonstrates how the promise interface is unified between other promise implementers.</p>
+            <p>This example demonstrates how the promise interface is unified between other promise implementers. Those being a promise from another jQuery.promises.image and a promise from jQuery.get.</p>
             <div class="code-example"><pre>jQuery.when(
       jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
       jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
@@ -127,8 +127,8 @@ jQuery.get('foo.txt')
           </section>
 
         <section id="image-example-3">
-          <h3>Example #3</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h3>Loading multiple images and fading them in</h3>
+            <p>You can pass in an array of image urls or image dom nodes to  jQuery.promises.image as well as a success callback to jQuery.promises.image as a second parameter.</p>
               <div class="code-example"><pre>jQuery.promises.image(
       [
           "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
@@ -153,7 +153,6 @@ jQuery.get('foo.txt')
 
             <section class="result">
               <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
 
