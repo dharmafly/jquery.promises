@@ -91,7 +91,7 @@ jQuery.get('foo.txt')
 
         <!-- jQuery.promises.image -->
         <h2 id="image">jQuery.promises.image</h2>
-        <p>This is a Deferred wrapped around a HTML Image Node element.</p>
+        <p>This is a Deferred object wrapped around a HTML Image Node element. It offers a promise interface.</p>
         <section id="image-example-1">
           <h3>#1 Loading an Image</h3>
           <p>One can use jQuery.promises.image to structure their code based on whether or not the image correctly loads. In this example jQuery.promises.image has an image url passed to it.</p>
@@ -169,12 +169,12 @@ jQuery.get('foo.txt')
 
         <!-- jQuery.promises.timer -->
           <h2 id="timer">jQuery.promises.timer</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>This is a Deferred object wrapped around the setTimeout function. It offers a promise interface.</p>
 
 
           <section id="timer-example-1">
-            <h3 id="jQuery.promises.timer-ex1">Example #1</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h3 id="jQuery.promises.timer-ex1">#1 Alerting based on time passed</h3>
+            <p>One can use jQuery.promises.timer to structure their code based on a temporal aspect. In this example jQuery.promises.timer has the time and a succes and failure callback passed in as its paramters.</p>
             <div class="code-example"><pre>jQuery.promises.timer(
       // milliseconds
       500,
@@ -192,13 +192,12 @@ jQuery.get('foo.txt')
 
             <section class="result">
               <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
 
           <section id="timer-example-2">
-            <h3>Example #2</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h3>#2 Changing the result background color</h3>
+            <p>In this example the timer is used to changed the background colour which is specified in the passed success callback.</p>
             <div class="code-example"><pre>var resultElem = jQuery("#timer-example-2 .result"),
       flag = window.flagBg;
 
@@ -226,13 +225,12 @@ jQuery.get('foo.txt')
 
             <section class="result">
               <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
 
           <section id="timer-example-3">
-            <h3 id="jQuery.promises.timer-ex3">Example #3</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h3 id="jQuery.promises.timer-ex3">#3 Simple slideshow</h3>
+            <p>This example demonstrates two different promise objects unified to make a slideshow.</p>
             <div class="code-example"><pre>var images = [
           "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
           "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
@@ -277,7 +275,6 @@ jQuery.get('foo.txt')
 
             <section class="result">
               <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </section>
           </section>
 
