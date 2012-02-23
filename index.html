@@ -61,24 +61,17 @@
         </div>
       </div>
       <div class="fluid-content">
-      <!--
-promises == design pattern that allow more flexible flow control
-(not just messy code, but brittle and tightly coupled)
-mention deferred before then
-deferred > custom > then
-not 1st person
-
         <!-- Project introduction-->
         <div class="hero-unit">
           <h1 id="overview">Introducing promises</h1>
-          <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine but can easily lead to messy and tightly-coupled code when you need to handle asynchronous flow control. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow more flexible flow control and help eliminate deeply nested callbacks.</p>
+          <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine but can easily lead to messy and tightly-coupled code when you need to handle asynchronous flow control. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow more flexible flow control without deeply nested callbacks.</p>
           <p>Slides from a talk given by the authors of jQuery.promises.</p>
-          <p>A Deferred object is used to manage the state of a promise. Promises have multiple states which range from being <em>unfulfilled</em>, <em>fulfilled</em>, and <em>failed</em>.</p>
+          <p>Promise objects have multiple states which range from being <em>unfulfilled</em>, <em>fulfilled</em>, and <em>failed</em>. A Deferred object which is responsible for creating the promise manages these states.</p>
           <p>As of jQuery 1.5, all of its <a href="http://api.jquery.com/category/ajax/" target="_blank">AJAX methods</a> like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> return a promise object that programmers can hook their next non/asynchronous function. This can be done using the promise's <a href="http://api.jquery.com/deferred.then/" target="_blank">then</a> method like so...</p>
           <pre>
 jQuery.get('foo.txt')
       .then(success, failure);</pre>
-          <p>In the example code above it is up to an internal <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object of <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> to constitute when its promise is <em>fulfilled</em> or <em>failed</em>.</p>
+          <p>In the example code above it is up to an internal <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object of <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> to constitute when its promise has <em>fulfilled</em> or <em>failed</em>.</p>
           <h3>jQuery.promises</h3>
           <p>So just like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> has done, programmers can wrap a Deferred object and return its promise to create a unified interface for asynchronous flow control.</p>
           <p>This is what <b>jQuery.promises</b> aims to do by providing a number of tiny but useful wrappers around common objects which can be used with the promise interface. Currently, there are only two wrappers; <a href="#image">jQuery.promises.image</a> and <a href="#timer">jQuery.promises.timer</a>.</p>
@@ -89,11 +82,10 @@ jQuery.get('foo.txt')
 
         <!-- jQuery.promises.image -->
         <h2 id="image">jQuery.promises.image</h2>
-        <p>This is a wrapped around a HTML Image </p>
-
+        <p>This is a Deferred wrapped around a HTML Image Node element.</p>
         <section id="image-example-1">
-          <h3>Example #1</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h3>#1 Loading an Image</h3>
+          <p>One can use jQuery.promises.image to structure their code based on whether or not the image correctly loads.</p>
           <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
@@ -105,8 +97,8 @@ jQuery.get('foo.txt')
     );</pre></div>
 
             <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+              <button class="btn run-code" href="#">Run &raquo;</button> <br>
+              Image should appear here.<br>
             </section>
           </section>
 
