@@ -66,14 +66,13 @@
         <div class="hero-unit">
           <h1 id="overview">Introducing promises</h1>
           <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine but can easily lead to messy code when you encounter flow control. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are useful objects that allow us to write asynchronously much more easily by adopting a type of flow control which eliminates deeply nested callbacks.</p>
-          <p>In the recent version of jQuery, some of it's asynchronous methods like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> return a promise object that we can hook our next non/asynchronous function. We can do this using the promise's <code>then</code> method like so...
+          <p>In the recent version of jQuery, some of it's asynchronous methods like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> return a promise object that we can hook our next non/asynchronous function. We can do this using the promise's <code>then</code> method like so...</p>
           <pre>
 jQuery.get('foo.txt')
       .then(success, failure);</pre>
-          <br>
-          A <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object is used to manage the state of a promise. Promises can have multiple states handled by its Deferred object and these states relate to triggered callbacks seen in the <code>then</code> method.</p>
+          <p>A <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object is used to manage the state of a promise. Promises can have multiple states handled by its Deferred object and these states relate to triggered callbacks seen in the <code>then</code> method.</p>
           <p>The states of a promise range from being <em>unfulfilled</em>, <em>fulfilled</em>, and <em>failed</em>. In the example code above it is up to an internal Deferred object of <code>get</code> to constitute when its promise is <em>fulfilled</em> or <em>failed</em>.</p>
-          <h4>So what about jQuery.promises?</h4>
+          <h3>jQuery.promises</h3>
           <p>So just like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> has done, we too can wrap a Deferred and return its promise to create a unified interface for asynchronous flow control.</p>
           <p>This is what <b>jQuery.promises</b> aims to do by providing a number of tiny but useful wrappers around common objects which can be used with the promise interface. Currently, there are only two wrappers; <a href="#image">jQuery.promises.image</a> and <a href="#timer">jQuery.promises.timer</a>.</p>
           <p><a class="btn primary large" href="https://github.com/dharmafly/jquery.promises">GitHub repo &raquo;</a></p>
