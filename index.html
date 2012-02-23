@@ -65,25 +65,25 @@
         <div class="hero-unit">
           <h1 id="overview">Introducing promises</h1>
 
-          <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine but can easily lead to messy and tightly-coupled code when you need to handle asynchronous flow control. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow more flexible flow control without deeply nested callbacks.</p>
+          <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine, but can easily lead to messy and tightly-coupled code. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow flexible flow control without deeply nested callbacks.</p>
 
-          <p>Promise objects have multiple states which range from being <em>unfulfilled</em>, <em>fulfilled</em>, and <em>failed</em>. A Deferred object which is responsible for creating the promise manages these states.</p>
+          <p>Promise objects have multiple states that range from <em>unfulfilled</em> to either <em>fulfilled</em> or <em>failed</em>.</p>
 
-          <p>As of jQuery 1.5, all of its <a href="http://api.jquery.com/category/ajax/" target="_blank">AJAX methods</a> like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> return a promise object that programmers can hook their next non/asynchronous function. This can be done using the promise's <a href="http://api.jquery.com/deferred.then/" target="_blank">then</a> method like so...</p>
+          <p>As of jQuery v1.5, all of jQuery's <a href="http://api.jquery.com/category/ajax/" target="_blank">AJAX methods</a>, such as <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a>, return a promise object that can be hooked up with various asynchronous functions that will fire when the promise is fulfilled or fails.</p>
+          
+          <p><a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> can be used to create custom promises and "deferred" objects that control the state of the promises. A promise's <a href="http://api.jquery.com/deferred.then/" target="_blank">then</a> method allows <em>success</em> or <em>failure</em> calback functions to be applied to the promise:</p>
 
           <pre>
 jQuery.get('foo.txt')
       .then(success, failure);</pre>
 
-          <p>In the example code above it is up to an internal <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> object of <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> to constitute when its promise has <em>fulfilled</em> or <em>failed</em>.</p>
-
           <h3>jQuery.promises</h3>
-          <p>So just like <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a> has done, programmers can wrap a Deferred object and return its promise to create a unified interface for asynchronous flow control.</p>
-
-          <p>This is what <b>jQuery.promises</b> aims to do by providing a number of tiny but useful wrappers around common objects which can be used with the promise interface. Currently, there are only two wrappers; <a href="#image">jQuery.promises.image</a> and <a href="#timer">jQuery.promises.timer</a>.</p>
+          <p><strong>jQuery.promises</strong> is a collection of tiny scripts that provide a promise interface for common tasks. Currently, there are only two scripts: <a href="#image">jQuery.promises.image</a>, which wraps image elements that may or may not have been loaded by the browser and <a href="#timer">jQuery.promises.timer</a>, which wraps setTimeout delayed functions.</p>
 
           <p><a class="btn primary large" href="https://github.com/dharmafly/jquery.promises">GitHub repo &raquo;</a></p>
-          <p> Consider viewing <a href="http://promisespromises.dharmafly.com" target="_blank">slides</a> about Promises from <a href="http://asyncjs.com/promises/" target="_blank">a talk</a> given by the <a href="#credits">authors</a> of jQuery.promises.</p>
+          
+          <p>Take a look at <a href="http://promisespromises.dharmafly.com" target="_blank">slides for the Promises, Promises talk</a> given by the <a href="#credits">jQuery.promises authors</a> at <a href="http://asyncjs.com/promises/" target="_blank">Async, in Brighton, UK</a>.</p>
+          
           <p>Code contributions and <a href="https://github.com/dharmafly/jquery.promises/issues" target="_blank">feedback is welcome</a>.</p>
         </div>
 
@@ -91,10 +91,10 @@ jQuery.get('foo.txt')
 
         <!-- jQuery.promises.image -->
         <h2 id="image">jQuery.promises.image</h2>
-        <p>This is a Deferred object wrapped around a HTML Image Node element. It offers a promise interface.</p>
+        <p>A promise interface for loading HTML Image elements.</p>
         <section id="image-example-1">
           <h3>#1 Loading an Image</h3>
-          <p>One can use jQuery.promises.image to structure their code based on whether or not the image correctly loads. In this example jQuery.promises.image has an image url passed to it.</p>
+          <p>Use jQuery.promises.image to structure code based on whether or not the image correctly loads. In this example, jQuery.promises.image has an image URL passed to it.</p>
           <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
@@ -112,7 +112,8 @@ jQuery.get('foo.txt')
 
         <section id="image-example-2">
           <h3>#2 Loading multiple images and json</h3>
-            <p>This example demonstrates how the promise interface is unified between other promise implementers. Those being a promise from another jQuery.promises.image and a promise from jQuery.get.</p>
+            <p>This example demonstrates how promises from jQuery.promises.image promise can be used in conjunction with other kinds of promises.</p>
+            
             <div class="code-example"><pre>jQuery.when(
       jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
       jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
@@ -137,7 +138,7 @@ jQuery.get('foo.txt')
 
         <section id="image-example-3">
           <h3>#3 Loading multiple images and fading them in</h3>
-            <p>You can pass in an array of image urls or image dom nodes to  jQuery.promises.image as well as a success callback to jQuery.promises.image as a second parameter.</p>
+            <p>An array of image URLs or image DOM nodes can be passed to jQuery.promises.image as well as a success callback to jQuery.promises.image as a second parameter.</p>
               <div class="code-example"><pre>jQuery.promises.image(
       [
           "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
@@ -169,12 +170,12 @@ jQuery.get('foo.txt')
 
         <!-- jQuery.promises.timer -->
           <h2 id="timer">jQuery.promises.timer</h2>
-          <p>This is a Deferred object wrapped around the setTimeout function. It offers a promise interface.</p>
+          <p>This is a promise wrapper around the setTimeout function.</p>
 
 
           <section id="timer-example-1">
             <h3 id="jQuery.promises.timer-ex1">#1 Alerting based on time passed</h3>
-            <p>One can use jQuery.promises.timer to structure their code based on a temporal aspect. In this example jQuery.promises.timer has the time and a succes and failure callback passed in as its paramters.</p>
+            <p>Use jQuery.promises.timer to structure code based on delayed callbacks or timers. In this example, jQuery.promises.timer is passed the delay time, a success and a failure callback.</p>
             <div class="code-example"><pre>jQuery.promises.timer(
       // milliseconds
       500,
@@ -197,7 +198,7 @@ jQuery.get('foo.txt')
 
           <section id="timer-example-2">
             <h3>#2 Changing the result background color</h3>
-            <p>In this example the timer is used to changed the background colour which is specified in the passed success callback.</p>
+            <p>In this example, the timer is used to changed the background colour, which is specified in the success callback.</p>
             <div class="code-example"><pre>var resultElem = jQuery("#timer-example-2 .result"),
       flag = window.flagBg;
 
@@ -230,7 +231,7 @@ jQuery.get('foo.txt')
 
           <section id="timer-example-3">
             <h3 id="jQuery.promises.timer-ex3">#3 Simple slideshow</h3>
-            <p>This example demonstrates two different promise objects unified to make a slideshow.</p>
+            <p>This example demonstrates two different promise objects unified to make a simple photo slideshow.</p>
             <div class="code-example"><pre>var images = [
           "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
           "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
