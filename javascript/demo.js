@@ -60,7 +60,7 @@ jQuery('pre').each(function () {
             editor: editor
         });
 
-        jQuery(this.parentNode).append([output, button]);
+        jQuery(this.parentNode).append([output[0], button[0]]);
     }
 });
 
