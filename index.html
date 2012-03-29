@@ -1,309 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>jQuery.promises</title>
-    <meta name="description" content="jQuery.promises: A collection of little scripts that use jQuery.Deferred for cleaner, encapsulated flow control">
-    <meta name="author" content="Dharmafly">
-
-    <!-- HTML5 shim -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  </head>
-
-  <body>
-
-    <!-- Navbar -->
-
-    <div class="navbar navbar-fixed">
-      <div class="navbar-inner">
-        <div class="fluid-container">
-          <a class="brand" href="#">jQuery.promises</a>
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#docs">Documentation</a></li>
-            <li><a href="https://github.com/dharmafly/jquery.promises">Download</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Container -->
-
-    <div class="fluid-container sidebar-left">
-      <div class="fluid-sidebar">
-        <div class="well side-nav">
-          <h5 class="nav-label"><a class="nav-item" href="#overview">Overview</a></h5>
-
-          <h5 class="nav-label"><a href="#image">jQuery.promises.image</a></h5>
-          <ul class="nav-group">
-            <li><a class="nav-item" href="#image-example-1">example #1</a></li>
-            <li><a class="nav-item" href="#image-example-2">example #2</a></li>
-            <li><a class="nav-item" href="#image-example-3">example #3</a></li>
-          </ul>
-
-          <h5 class="nav-label"><a href="#timer">jQuery.promises.timer</a></h5>
-          <ul class="nav-group">
-            <li><a class="nav-item" href="#timer-example-1">example #1</a></li>
-            <li><a class="nav-item" href="#timer-example-2">example #2</a></li>
-            <li><a class="nav-item" href="#timer-example-3">example #3</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="fluid-content">
-        <!-- Project introduction-->
-        <div class="hero-unit">
-          <h1 id="overview">Introducing promises</h1>
-
-          <p>Asynchronous code in JavaScript is often handled with nested callback functions. This works fine, but can easily lead to messy and tightly-coupled code. <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promises</a> are a useful design pattern that allow flexible flow control without deeply nested callbacks.</p>
-
-          <p>Promise objects have multiple states that range from <em>unfulfilled</em> to either <em>fulfilled</em> or <em>failed</em>.</p>
-
-          <p>As of jQuery v1.5, all of jQuery's <a href="http://api.jquery.com/category/ajax/" target="_blank">AJAX methods</a>, such as <a href="http://api.jquery.com/jQuery.get" target="_blank">jQuery.get</a>, return a promise object that can be hooked up with various asynchronous functions that will fire when the promise is fulfilled or fails.</p>
-          
-          <p><a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a> can be used to create custom promises and "deferred" objects that control the state of the promises. A promise's <a href="http://api.jquery.com/deferred.then/" target="_blank">then</a> method allows <em>success</em> or <em>failure</em> calback functions to be applied to the promise:</p>
-
-          <pre>
-jQuery.get('foo.txt')
-      .then(success, failure);</pre>
-
-          <h3>jQuery.promises</h3>
-          <p><strong>jQuery.promises</strong> is a collection of tiny scripts that provide a promise interface for common tasks. Currently, there are only two scripts: <a href="#image">jQuery.promises.image</a>, which wraps image elements that may or may not have been loaded by the browser and <a href="#timer">jQuery.promises.timer</a>, which wraps setTimeout delayed functions.</p>
-
-          <p><a class="btn primary large" href="https://github.com/dharmafly/jquery.promises">GitHub repo &raquo;</a></p>
-          
-          <p>Take a look at <a href="http://promisespromises.dharmafly.com" target="_blank">slides for the Promises, Promises talk</a> given by the <a href="#credits">jQuery.promises authors</a> at <a href="http://asyncjs.com/promises/" target="_blank">Async, in Brighton, UK</a>.</p>
-          
-          <p>Code contributions and <a href="https://github.com/dharmafly/jquery.promises/issues" target="_blank">feedback is welcome</a>.</p>
-        </div>
-
-        <hr>
-
-        <!-- jQuery.promises.image -->
-        <h2 id="image">jQuery.promises.image</h2>
-        <p>A promise interface for loading HTML Image elements.</p>
-        <section id="image-example-1">
-          <h3>#1 Loading an Image</h3>
-          <p>Use jQuery.promises.image to structure code based on whether or not the image correctly loads. In this example, jQuery.promises.image has an image URL passed to it.</p>
-          <div class="code-example"><pre>jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
-    .then(
-        function(img){
-            jQuery(img).appendTo('#image-example-1 .result');
-        },
-        function(){
-            alert("Image failed to load");
-        }
-    );</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-        <section id="image-example-2">
-          <h3>#2 Loading multiple images and json</h3>
-            <p>This example demonstrates how promises from jQuery.promises.image promise can be used in conjunction with other kinds of promises.</p>
-            
-            <div class="code-example"><pre>jQuery.when(
-      jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg"),
-      jQuery.promises.image("http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg"),
-      jQuery.get("example.json")
-  )
-  .then(
-      function(img1, img2, json){
-          jQuery("#image-example-2 .result")
-              .append(img1)
-              .append(img2)
-              .append("&lt;code>" + json[0].foo + "&lt;/code>");
-      },
-      function(){
-          alert("Something failed to load");
-      }
-  );</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-        <section id="image-example-3">
-          <h3>#3 Loading multiple images and fading them in</h3>
-            <p>An array of image URLs or image DOM nodes can be passed to jQuery.promises.image as well as a success callback to jQuery.promises.image as a second parameter.</p>
-              <div class="code-example"><pre>jQuery.promises.image(
-      [
-          "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
-          "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
-          "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
-      ],
-
-      // Success callback - called if all images load successfully
-      // image elements are passed as arguments in the same order as above
-      function(){
-          jQuery(arguments)
-              .hide()
-              .appendTo("#image-example-3 .result")
-              .fadeIn(1000);
-      },
-
-      // Fail callback - called if one or more images fail to load
-      function(){
-          alert("An image failed to load");
-      }
-  );</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-        <hr>
-
-        <!-- jQuery.promises.timer -->
-          <h2 id="timer">jQuery.promises.timer</h2>
-          <p>This is a promise wrapper around the setTimeout function.</p>
-
-
-          <section id="timer-example-1">
-            <h3 id="jQuery.promises.timer-ex1">#1 Alerting based on time passed</h3>
-            <p>Use jQuery.promises.timer to structure code based on delayed callbacks or timers. In this example, jQuery.promises.timer is passed the delay time, a success and a failure callback.</p>
-            <div class="code-example"><pre>jQuery.promises.timer(
-      // milliseconds
-      500,
-
-      // Success callback
-      function(){
-          alert("Success!");
-      },
-
-      // Fail callback
-      function(){
-          alert("Error!");
-      }
-  );</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-          <section id="timer-example-2">
-            <h3>#2 Changing the result background color</h3>
-            <p>In this example, the timer is used to changed the background colour, which is specified in the success callback.</p>
-            <div class="code-example"><pre>var resultElem = jQuery("#timer-example-2 .result"),
-      flag = window.flagBg;
-
-  jQuery.promises.timer(
-
-      // milliseconds
-      500,
-
-      // Success callback
-      function(){
-          // Toggle body background-colour from yellow to green
-          resultElem.css({
-              backgroundColor: flag ?
-                  "#fff9a6" : "#aaffaa"
-          });
-
-          window.flagBg = !flag;
-      },
-
-      // Fail callback
-      function(){
-          alert("Error");
-      }
-  );</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-          <section id="timer-example-3">
-            <h3 id="jQuery.promises.timer-ex3">#3 Simple slideshow</h3>
-            <p>This example demonstrates two different promise objects unified to make a simple photo slideshow.</p>
-            <div class="code-example"><pre>var images = [
-          "http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg",
-          "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
-          "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
-      ],
-      current = 0;
-
-  function loadAndDisplay(src){
-      jQuery.when(
-          jQuery.promises.image(src),
-          jQuery.promises.timer(1000)
-      )
-      .then(
-          function(img){
-              jQuery(img)
-                  // Hide image and then display it
-                  .hide()
-                  .fadeIn(500, function(){
-
-                      // Once faded in, load next image
-                      current ++;
-
-                      // Reset loop to first image
-                      if (current >= images.length){
-                          current = 0;
-                      }
-
-                      // Load and display the next image
-                      loadAndDisplay(images[current]);
-                  });
-
-              jQuery("#timer-example-3 .result").html(img);
-          },
-
-          function(){
-              alert("Error");
-          }
-      );
-  }
-
-  loadAndDisplay(images[current]);</pre></div>
-
-            <section class="result">
-              <button class="btn run-code" href="#">Run &raquo;</button> <br> <br>
-            </section>
-          </section>
-
-        </div> <!-- /container -->
-      </div>
-
-	<!-- jQuery + jQuery.promises -->
-	<script src="js/jquery.js"></script>
-    <script src="https://raw.github.com/dharmafly/jquery.promises/master/image.js"></script>
-    <script src="https://raw.github.com/dharmafly/jquery.promises/master/timer.js"></script>
-
-	<!-- Demo code snippets -->
-    <script src="js/ace/ace.js"></script>
-    <script src="js/ace/theme/theme-monokai.js"></script>
-    <script src="js/ace/mode-javascript.js"></script>
-    <script src="js/demo.js"></script>
-
-	<!-- ga -->
-	<script>
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-2150808-19']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
-  </body>
+---
+---
+<!doctype>
+<html>
+		<head>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width" />
+			<title>jQuery.promises</title>
+			<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Copse" rel="stylesheet" />
+			<link href="./css/global.css" rel="stylesheet" />
+		</head>
+		<body>
+			<header>
+				<h1 class="title">jQuery.promises</h1>
+			</header>
+			<nav id="navigation">
+				<ul>
+					<li><a href="#getting-started">Getting Started</a></li>
+					<li><a href="#download">Download</a></li>
+					<li><a href="#changelog">Change Log</a></li>
+					<li><a href="#reference">Reference</a></li>
+				</ul>
+			</nav>
+			<section>
+				<h1><a id="getting-started" class="permalink" href="#getting-started">#</a> Getting Started</h1>
+				{% for post in site.posts reversed %}
+					{% if forloop.first %}
+						<article class="embedded markdown">
+						{{ post.content }}
+						</article>
+					{% endif %}
+				{% endfor %}
+			</section>
+			<section>
+				<h1><a id="download" class="permalink" href="#download">#</a> Download</h1>
+				<p>The current version of jquery.promises is <b>1.0.0</b> you can download it below.</p>
+				<p class="buttons">
+					<a class="button" href="https://github.com/dharmafly/jquery.promises">jquery.promises</a>
+				</p>
+			</section>
+			<section class="change-log">
+				<h1><a id="changelog" class="permalink" href="#changelog">#</a> Change Log</h1>
+				<ul>
+					<li>
+						<h2>Version 1.0.0</h2>
+						<ul>
+							<li>Initial Release</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h1><a id="reference" class="permalink" href="#reference">#</a> Reference</h1>
+				<p>The following sections give an overview of the various available methods
+				and their usage<p>
+				{% for post in site.posts reversed %}
+					{% unless forloop.first %}
+						<article class="embedded markdown">
+						{{ post.content }}
+						</article>
+					{% endunless %}
+				{% endfor %}
+			</section>
+			<footer>
+				<p>
+				A <a href="http://dharmafly.com">Dharmafly</a> project.
+				Source on <a href="http://github.com/dharmafly/jquery.promises.js">GitHub</a>.
+				Built with <a href="https://github.com/mojombo/jekyll">Jekyll</a> and <a href="http://github.com/cloudhead/hijs">hijs</a>.
+				</p>
+			</footer>
+			<script src="./javascript/hijs.js"></script>
+			<script src="./javascript/main.js"></script>
+		</body>
 </html>
