@@ -1,7 +1,7 @@
 /*globals ace jQuery*/
+/*jshint indent:4*/
 function createAceEditor(dom) {
-    var elem = jQuery(dom),
-        editor, session, JavaScriptMode;
+    var elem = jQuery(dom), editor, session, JavaScriptMode;
 
     // Not sure why this has to be set on the DOM element.
     elem.css({position: 'relative'});
@@ -19,7 +19,9 @@ function createAceEditor(dom) {
     session.setUseSoftTabs(true);
     session.setMode(new JavaScriptMode());
 
-    editor.getSession().on('change', (function onChange(event) {
+    // Adjusts the size of the editable area when new lines are entered. This
+    // function is invoked once then returned to be used as the callback.
+    session.on('change', (function onChange(event) {
         var height = editor.getSession().getDocument().getLength() *
                      editor.renderer.lineHeight +
                      editor.renderer.scrollBar.getWidth() * 1.2;
@@ -41,34 +43,47 @@ var index = 0;
 
 // For each code block, create an ACE code editor
 jQuery('pre').each(function () {
-    var code = $(this).find('code');
-    $(this).wrap('<div class="run" />');
+    jQuery(this).wrap('<div class="run" />');
 
-    var editor = createAceEditor(code[0]);
-    var content = editor.getSession().getValue();
+    var code = jQuery(this).find('code'),
+        editor = createAceEditor(code[0]),
+        content = editor.getSession().getValue(),
+        id, output, button;
+
+    // Check code block for runnable keywords and setup output box
+    // and run button.
     if (content.indexOf('$output') > -1 || content.indexOf('alert') > -1) {
-        var id = 'output-' + (index += 1);
-        var output = $('<output>Output...</output>').attr('id', id).appendTo(this.parentNode);
-        var button = $('<button class="eval">Run</button>')
-          .appendTo(this.parentNode)
-          .data({output: output, editor: editor});
+        id = 'output-' + (index += 1);
+        output = jQuery('<output>Output...</output>').attr('id', id);
+        button = jQuery('<button class="eval">Run</button>').data({
+            output: output,
+            editor: editor
+        });
+
+        jQuery(this.parentNode).append([output, button]);
     }
 });
 
 // Attach handlers to "Run" buttons
 jQuery('button.eval')
-.click(function(){
-  var button = jQuery(this),
-      editor = button.data("editor"),
-      code   = editor.getSession().getValue(),
-      output = button.data('output');
+.click(function () {
+    var button = jQuery(this),
+        editor = button.data("editor"),
+        code   = editor.getSession().getValue(),
+        output = button.data('output');
 
-  output.empty();
-  setTimeout(function () {
-    output.addClass('loaded');
+    output.empty();
     setTimeout(function () {
-      output.removeClass('loaded');
-    }, 1500);
-    jQuery.globalEval('(function ($output, alert) {' + code + '})(jQuery("#' + output[0].id + '"), function (msg) { jQuery("#' + output[0].id + '").append("alert: " + msg + "</br/>"); })');
-  }, 300);
+        var $output = 'jQuery("#' + output[0].id + '")',
+            $alert  = 'function (msg) {' + $output + '.append("alert: " + msg + "</br/>");}';
+
+        // Add an remove a class when the code is run.
+        output.addClass('loaded');
+        setTimeout(function () {
+            output.removeClass('loaded');
+        }, 1500);
+
+        // Execute the code in a custom scope that includes alert() and $output.
+        jQuery.globalEval('(function ($output, alert) {' + code + '})(' + $output + ', ' + $alert + ')');
+    }, 300);
 });
