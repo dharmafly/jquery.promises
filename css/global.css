@@ -88,6 +88,7 @@ pre {
 }
 
 pre code {
+	position: relative;
 	padding: 0;
 	display: block;
 	border-radius: 0;
@@ -129,6 +130,7 @@ pre, code {
 }
 
 nav.float {
+	z-index: 101;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -277,28 +279,43 @@ section .permalink:hover {
 	list-style-type: circle;
 }
 
-.keyword {
-	color: #4271ae;
+.run {
+	position: relative;
 }
 
-.string {
-	color: #c82829;
+.run .eval {
+	z-index: 100;
+	position: absolute;
+	top: 15px;
+	left: -40px;
+	cursor: pointer;
 }
 
-.number {
-	color: #718c00;
+.run output {
+	font-family: Menlo, mono-space;
+	display: block;
+	background-color: #fafafa;
+	font-size: 1.4em; /* Fixes odd issue in FF */
+	overflow: auto;
+	overflow-y: hidden;
+	-webkit-tab-size: 2;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	margin: 0 -3.2em 2em;
+	padding: 1.5em 3.5em;
+	border: 3px solid #eee;
+	border-left: 0;
+	border-right: 0;
+	-webkit-transition: border-color 1.5s, background-color 1.5s;
+	-moz-transition: border-color 1.5s, background-color 1.5s;
+	-ms-transition: border-color 1.5s, background-color 1.5s;
+	transition: border-color 1.5s, background-color 1.5s;
 }
 
-.regexp {
-	color: #3e999f;
-}
-
-.special {
-	color: #8959a8;
-}
-
-.comment {
-	color: #8e908c;
+.run output.loaded {
+	border-color: #fef5af;
+	background-color: #fdfdea;
 }
 
 .ace_cursor.ace_hidden {

@@ -28,8 +28,7 @@ failure callback.
 Changing the result background color
 ------------------------------------
 
-    var resultElem = jQuery("#timer-example-2 .result"),
-        flag = window.flagBg;
+    var flag = window.flagBg;
 
     jQuery.promises.timer(
 
@@ -39,7 +38,7 @@ Changing the result background color
         // Success callback
         function(){
             // Toggle body background-colour from yellow to green
-            resultElem.css({
+            $output.css({
                 backgroundColor: flag ?
                     "#fff9a6" : "#aaffaa"
             });
@@ -64,9 +63,13 @@ photo slideshow.
               "http://farm3.staticflickr.com/2102/2183461799_beff4bb413_m.jpg",
               "http://farm1.staticflickr.com/73/175573986_f5073bfcb0_m.jpg"
           ],
-          current = 0;
+          current = 0, stopped;
 
     function loadAndDisplay(src){
+        if (stopped) {
+            return;
+        }
+
         jQuery.when(
             jQuery.promises.image(src),
             jQuery.promises.timer(1000)
@@ -90,7 +93,7 @@ photo slideshow.
                         loadAndDisplay(images[current]);
                     });
 
-                jQuery("#timer-example-3 .result").html(img);
+                $output.html(img);
             },
 
             function(){
@@ -98,5 +101,8 @@ photo slideshow.
             }
         );
     }
+
+    // Click an image to stop the slideshow.
+    $output.on('click', 'img', function () { stopped = true; });
 
     loadAndDisplay(images[current]);

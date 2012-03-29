@@ -9,7 +9,7 @@ Loading an image
     jQuery.promises.image("http://farm3.staticflickr.com/2188/2219660409_21ba876f98_m.jpg")
     .then(
         function(img){
-            jQuery(img).appendTo('#image-example-1 .result');
+            jQuery(img).appendTo($output);
         },
         function(){
             alert("Image failed to load");
@@ -29,7 +29,7 @@ used in conjunction with other kinds of promises.
     )
     .then(
         function(img1, img2, json){
-            jQuery("#image-example-2 .result")
+            $output
                 .append(img1)
                 .append(img2)
                 .append("<code>" + json[0].foo + "</code>");
@@ -57,7 +57,7 @@ as well as a success callback to `jQuery.promises.image()` as a second parameter
       function(){
           jQuery(arguments)
               .hide()
-              .appendTo("#image-example-3 .result")
+              .appendTo($output)
               .fadeIn(1000);
       },
 
