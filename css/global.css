@@ -301,6 +301,10 @@ section .permalink:hover {
 	color: #8e908c;
 }
 
+.ace_cursor.ace_hidden {
+	opacity: 0!important;
+}
+
 @media (min-width:340px) {
 	nav {
 		text-align: center;
