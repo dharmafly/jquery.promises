@@ -1,17 +1,17 @@
 # Your project's details
-PROJECT_NAME: Dharmafly Docs
+PROJECT_NAME: jQuery.promises
 GITHUB_CURRENT_VERSION: 1.0
-GITHUB_PROJECT_URL: https://github.com/dharmafly/dharmafly-docs
+GITHUB_PROJECT_URL: https://github.com/dharmafly/jquery.promises
 
 # The style for your site (options: default, ocean)
 THEME: default
     
 ############ Optional extras
 
-GITHUB_ZIP_URL: https://github.com/dharmafly/dharmafly-docs/zipball/gh-pages
+GITHUB_ZIP_URL: https://github.com/dharmafly/jquery.promises/zipball/master
 TWITTER_PROJECT_URL: https://twitter.com/dharmafly
 # options: javascript, css, html5
-LANG: css
+LANG: javascript
 
 # Add your project's scripts here to be available to any examples
 SCRIPTS:
