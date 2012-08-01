@@ -3,9 +3,6 @@ category: reference
 heading: "jquery.promises.image"
 ---
 
-jQuery.promises.image
-=====================
-
 A promise interface for loading `Image()` elements.
 
 Loading an image

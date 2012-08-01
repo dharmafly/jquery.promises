@@ -3,9 +3,6 @@ category: reference
 heading: "jquery.promises.timer"
 ---
 
-jQuery.promises.timer
-=====================
-
 This is a promise wrapper around the `setTimeout()` function.
 
 Alerting based on time passed
