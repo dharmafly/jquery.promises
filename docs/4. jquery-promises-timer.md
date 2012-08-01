@@ -1,5 +1,6 @@
 ---
 category: reference
+heading: "jquery.promises.timer"
 ---
 
 jQuery.promises.timer
