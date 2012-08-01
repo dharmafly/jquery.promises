@@ -1,5 +1,6 @@
 ---
 category: reference
+heading: "jquery.promises.image"
 ---
 
 jQuery.promises.image
