@@ -86,6 +86,7 @@ For the Rakefile (build script) to operate correctly, the documentation should b
 1. In a `docs` directory.
 2. With filenames in the form: `1. Example title.md`, `2. Another doc.md` etc.
 
+<<<<<<< HEAD
 #### 2) Run the build script
 
 1. Set up a [ruby installation] (http://www.ruby-lang.org/), if you don't already have one in your environment.
@@ -190,6 +191,12 @@ There are no required posts, however the first post in your `docs` directory wil
 It's recommended that you use the Rakefile to add posts.
 
 If you are unable, you can add posts manually. [Details on the wiki] (https://github.com/dharmafly/dharmafly-docs/wiki/Manually-adding-posts)
+=======
+If you've added any files to the `assets` directory, or updated any posts in the `_posts` directory, these will be pulled-in to the `master` branch. As you won't really want instances of Dharmafly Docs to contain all the assets (psd files, master pngs, etc), or any of the Dharmafly Docs posts, you should delete these directories before commiting.
+
+The site structure
+------------------------
+>>>>>>> e21b4a5feef49ec963a053c0669d0bbb1cae7a04
 
 Site variables
 ==================
