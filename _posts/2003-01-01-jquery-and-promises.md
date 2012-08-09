@@ -1,8 +1,7 @@
 ---
-category: overview
-heading: jQuery and Promises
+category: about
+heading: "jQuery and Promises"
 ---
-
 
 Asynchronous code in JavaScript is often handled with nested callback functions.
 This works fine, but can easily lead to messy and tightly-coupled code. 

@@ -1,13 +1,34 @@
 ---
 category: reference
-heading: jquery.promises.timer
+heading: "jquery.promises.timer"
 ---
-
 
 This is a promise wrapper around the `setTimeout()` function.
 
 Alerting based on time passed
------
+-----------------------------
+
+Use jQuery.promises.timer to structure code based on delayed callbacks or timers.
+In this example, jQuery.promises.timer is passed the delay time, a success and a
+failure callback.
+
+    jQuery.promises.timer(
+        // milliseconds
+        500,
+
+        // Success callback
+        function(){
+            alert("Success!");
+        },
+
+        // Fail callback
+        function(){
+            alert("Error!");
+        }
+    );
+
+Changing the result background color
+------------------------------------
 
     var flag = window.flagBg;
 
@@ -19,7 +40,7 @@ Alerting based on time passed
         // Success callback
         function(){
             // Toggle body background-colour from yellow to green
-            $output.css({
+            jQuery(demoElement).css({
                 backgroundColor: flag ?
                     "#fff9a6" : "#aaffaa"
             });
@@ -34,7 +55,7 @@ Alerting based on time passed
     );
 
 Simple slideshow
-----
+----------------
 
 This example demonstrates two different promise objects unified to make a simple
 photo slideshow.
@@ -74,7 +95,7 @@ photo slideshow.
                         loadAndDisplay(images[current]);
                     });
 
-                $output.html(img);
+                jQuery(demoElement).html(img);
             },
 
             function(){
@@ -84,6 +105,6 @@ photo slideshow.
     }
 
     // Click an image to stop the slideshow.
-    $output.on('click', 'img', function () { stopped = true; });
+    jQuery(demoElement).on('click', 'img', function () { stopped = true; });
 
     loadAndDisplay(images[current]);
