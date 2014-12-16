@@ -1,5 +1,7 @@
 # jQuery.promises
 
+_UPDATE: This library is no longer under development, although pull requests are welcome._
+
 A collection of little scripts that use jQuery.Deferred for cleaner, encapsulated flow control.
 
 * by [Premasagar Rose](http://premasagar.com) 
